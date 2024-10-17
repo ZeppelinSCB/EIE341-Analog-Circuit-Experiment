@@ -36,6 +36,7 @@
 \usepackage{geometry} % Set detailed page layout
 \usepackage{hyperref} % In document hyperlink
 \usepackage{titlesec} % Enable title formating
+\usepackage[automark]{scrlayer-scrpage} % sets pagestyle scrheadings automatically
 
 
 %Mathematical 
@@ -103,6 +104,40 @@
     {\bfseries\Large}%format
     {\huge\textnormal{\thesubsection}}%label
     {10pt}{}{}
+
+%Page Numer Format
+%----------------------------------------------------
+
+\AddLayersToPageStyle{scrheadings}{pagenumber.odd,pagenumber.even}
+\AddLayersToPageStyle{plain.scrheadings}{pagenumber.odd,pagenumber.even}
+\DeclareNewLayer[
+  foreground,
+  oddpage,
+  foot,
+  contents={%
+    \hfill
+    \makebox[0pt][l]{%
+      \pagenumberrule
+      \hspace*{10pt}%
+      \pagemark
+    }%
+  }
+]{pagenumber.odd}
+\DeclareNewLayer[
+  clone=pagenumber.odd,
+  evenpage,
+  contents={%
+    \makebox[0pt][r]{%
+      \pagemark
+      \hspace*{10pt}%
+      \pagenumberrule
+    }%
+  }
+]{pagenumber.even}
+\newcommand*\pagenumberrule{%
+  {\color{ctcolorfooterline}\rule[\dimexpr-10cm+\ht\strutbox\relax]{1.25pt}{10cm}}%
+}
+\addtokomafont{pagenumber}{\usekomafont{disposition}}
 
 %----------------------------------------------------------------------------------------
 %	Custom Functional Command

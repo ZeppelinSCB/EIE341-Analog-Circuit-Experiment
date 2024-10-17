@@ -7,15 +7,13 @@
     twoside=true
     ]{article}
 
-%Include Predefined Header
+%Include Packages
 %----------------------------------------------------
 \usepackage{../Header/KaTeX_LabReport}
 \usepackage{lipsum}
 % Note: 
 % The input command is equivalent to copy-paste the content of the file
 % into the current file.
-%
-%
 
 %Hyperlink Setting
 %----------------------------------------------------
@@ -26,62 +24,22 @@
 	breaklinks=true
 }
 
-
+\includeonly{
+    ../Experiment_01/Lab1_Main
+}
 \begin{document}
-
-%Font Setting
-%----------------------------------------------------
-
-
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE
+%	FRONT MATTER
 %----------------------------------------------------------------------------------------
-\begin{titlepage}
-    % Warning Filter
-    \WarningFilter[latex]{latexfont}{Some font shapes}
-    \WarningFilter[latex]{tex}{Underfull \hbox}
-    \ActivateWarningFilters[latex]
-
-	%\hspace{0.05\textheight} % Whitespace between the vertical line and title page text
-    \parbox{1\textwidth}{ % Paragraph box for holding the title page text, adjust the width to move the title page left or right on the page
-		{\Huge\bfseries Report of EIE341 \\[0.15\baselineskip] 
-            Analog Circuit Laboratory}\\[0.15\baselineskip] % Title
-		\rule{1\textwidth}{1pt} % Vertical line
-        {\Large\textit{Complete Collection for Experiment Report of EIE341 Analog Circuit Laboratory}}
-        \newline
-    }
-    \vspace{100pt} % Whitespace between the title block and the publisher
-    \parbox{1\textwidth}{
-        {\large by}\\[1.5\baselineskip]
-        {\rule[1pt]{200pt}{1pt}} \\[1.25pt]
-        {\huge\textsc{Pengrui K. Tang}
-            %\begin{CJK*}{UTF8}{bsmi}\Large (湯鵬睿)\end{CJK*}
-            }\\
-        {\large{Student No: 1220031811}} \\
-        \large from EIE341 D2, \newline
-        Faculty of Innovation Engeneering, \newline
-        Universidade de Ciência e Tecnologia de Macau
-    }
-		
-
-    \vspace*{\fill}
-		From Sep, 2024 to TBD, TBD \newline 
-        (Coloane, Macao SAR)
-        \vspace{0.7\baselineskip}\newline
-        %\includegraphics[width = 40mm]{MUIT_BlueGold.png}\newline
-        \includegraphics[width = 40mm]{../Header/MUIT_origin.png}\par
-        {\small Cover Design by Karl Tang}\\[0.25pt]
-        {\small This report is a part of the result for}
-        {\small EIE341~Analog~Circuit Experiment in U.C.T.M}\\[0.25pt]
-
-\end{titlepage}
+% Cover
+\thispagestyle{empty}
+\input{KaTex_Cover_type1.tex}
+\thispagestyle{empty}
 \blankpage
 
-%----------------------------------------------------------------------------------------
-%	TABLE OF CONTENTS
-%----------------------------------------------------------------------------------------
+% Table of Contents
 \tableofcontents
-\newpage
+\blankpage
 
 %----------------------------------------------------------------------------------------
 %	Main Content

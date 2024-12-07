@@ -3,7 +3,7 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
+\renewcommand{\thechapter}{\Roman{chapter}}
 
 %Language-specific commands
 %--------------------------------------
@@ -20,23 +20,27 @@
 \usepackage{placeins} % FloatBarrier command
 \usepackage{rotating} % Rotate figures
 \usepackage{graphicx} % Include graphics
+
 \usepackage{subcaption} % Allow subfigure
 \usepackage{booktabs} % Enhances the quality of tables
 \usepackage{array} % 
 \usepackage{colortbl} % Allows coloured tables
+\usepackage{svg}%Allows svg files diagram
+\usepackage{pdfpages}
 
 
 %Typesetting and Layout
 %--------------------------------------
-\usepackage{import} % Allows importing files
 \usepackage{blindtext} % Generate dummy text (lorem ipsum) for testing
 \usepackage{enumerate} 
 \usepackage{setspace} % Set space between lines
+\usepackage[absolute]{textpos} % Absolute positioning of text
 \usepackage{parskip} % Space between paragraph instead of indent
 \usepackage{geometry} % Set detailed page layout
 \usepackage{hyperref} % In document hyperlink
 \usepackage{titlesec} % Enable title formating
-\usepackage[automark]{scrlayer-scrpage} % sets pagestyle scrheadings automatically
+\usepackage{xcolor} % Color package
+\usepackage{tocloft} % Table of content formating
 
 
 %Mathematical 
@@ -56,6 +60,7 @@
 %Code
 %--------------------------------------
 \usepackage{silence} % filter warnings
+\usepackage{xurl} % break long url
 
 
 %----------------------------------------------------------------------------------------
@@ -77,6 +82,8 @@
 \pagenumbering{roman}
 \pagestyle{plain}
 
+\addtolength{\cftsubsecnumwidth}{3pt} %Increase space, avoid overlapping
+
 \newdimen\origiwspc
 \origiwspc=\fontdimen2\font %original inter-word space
 \fontdimen2\font=0.2ex
@@ -97,14 +104,27 @@
     }%label
     {0pt}{}{}
 \titlespacing*{\section}{0pt}{0pt}{20pt}
-\renewcommand{\thesubsection}{\thesection: \Roman{subsection}}
-\renewcommand{\thesubsubsection}{\thesubsection. \roman{subsubsection}}
-
+% ##
+\renewcommand{\thesubsection}{\Roman{subsection}}
 \titleformat{\subsection}
     {\bfseries\Large}%format
     {\huge\textnormal{\thesubsection}}%label
-    {10pt}{}{}
+    {12pt}{}{}
 
+\usepackage{sectsty}
+    \sectionfont{\LARGE}
+    \subsectionfont{\large}
+    \subsubsectionfont{\large}
+    \paragraphfont{\large}
+\usepackage{titletoc}
+    \titlecontents{}[1em]{\addvspace{1pc}\bfseries}      {\contentslabel{3em}}{}
+    {\titlerule*[0.3pc]{.}\contentspage}
+
+\usepackage{tocloft}% http://ctan.org/pkg/tocloft
+\setlength\cftsecnumwidth{6em}
+
+\renewcommand{\thesubsubsection}{\thesubsection: \roman{subsubsection}}
+\titlespacing{\subsubsection}{0pt}{15pt}{5pt}
 %Color Setting
 %----------------------------------------------------
 \definecolor{chigusa}{RGB}{58,143,183}
@@ -119,6 +139,9 @@
 	pdfstartview=Fit,
 	breaklinks=true
 }
+
+
+
 %----------------------------------------------------------------------------------------
 %	Custom Functional Command
 %----------------------------------------------------------------------------------------

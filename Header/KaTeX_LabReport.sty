@@ -3,7 +3,7 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-\renewcommand{\thechapter}{\Roman{chapter}}
+
 
 %Language-specific commands
 %--------------------------------------
@@ -31,6 +31,7 @@
 
 %Typesetting and Layout
 %--------------------------------------
+\usepackage{import} % Allows importing files
 \usepackage{blindtext} % Generate dummy text (lorem ipsum) for testing
 \usepackage{enumerate} 
 \usepackage{setspace} % Set space between lines
@@ -39,6 +40,7 @@
 \usepackage{geometry} % Set detailed page layout
 \usepackage{hyperref} % In document hyperlink
 \usepackage{titlesec} % Enable title formating
+\usepackage[automark]{scrlayer-scrpage} % sets pagestyle scrheadings automatically
 \usepackage{xcolor} % Color package
 \usepackage{tocloft} % Table of content formating
 
@@ -104,7 +106,8 @@
     }%label
     {0pt}{}{}
 \titlespacing*{\section}{0pt}{0pt}{20pt}
-% ##
+\renewcommand{\thesubsection}{\thesection: \Roman{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection. \roman{subsubsection}}
 \renewcommand{\thesubsection}{\Roman{subsection}}
 \titleformat{\subsection}
     {\bfseries\Large}%format

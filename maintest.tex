@@ -1,0 +1,114 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper,11pt]{article}
+\usepackage{CJK}%Chinese
+\usepackage[portuguese]{babel}%Portuguese
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{stix} % Use the STIX fonts
+\usepackage{blindtext}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{multirow}%multirow in TABLE
+\usepackage{subcaption}%Allow subfigure
+\usepackage{physics}%easier derivative
+\usepackage{pgfplots}%ploting
+\usepackage{pgfplotstable}%ploting
+\usepackage{booktabs}%ploting
+\usepackage{array}%ploting
+\usepackage{colortbl}%ploting
+\usepackage{placeins}%flowbarrier
+\usepackage{parskip}%flowbarrier
+\usepackage{silence}%filter warnings
+\usepackage{circuitikz}%circuits
+\usepackage{hyperref}%hyperlink
+\usepackage{titlesec}%title format
+
+\newcommand*{\Ohm}{$\Omega$} % Ohm symbol
+
+%Renew the section format
+\newcommand\chaptername{Chapter}
+\renewcommand{\thesection}{\Roman{section}} 
+\titleformat{\section}[display]%command shape
+    {\Huge}%format
+    {
+        \newpage
+        \setlength\fboxsep{0pt}
+        \color{gray} \fontsize{20}{5}\selectfont\chaptername\ \thesection
+    }%label
+    {0pt}{}{}
+\titlespacing*{\section}{0pt}{0pt}{20pt}
+\renewcommand{\thesubsection}{\thesection: \Roman{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection. \roman{subsubsection}}
+
+\titleformat{\subsection}
+    {\bfseries\Large}%format
+    {\huge\textnormal{\thesubsection}}%label
+    {10pt}{}{}
+
+%Hyperlink Setting
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+
+%Page format
+\parskip 6pt
+\setstretch{1.15}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\newdimen\origiwspc
+\origiwspc=\fontdimen2\font %original inter-word space
+\fontdimen2\font=0.2ex
+
+\pgfplotsset{compat=1.18} %compatibility with pgfplots
+\WarningFilter{latexfont}{Font shape} %silence the warning due to the STIX font
+
+\CJKnospace%Setting for CJK to work with other language
+
+\newcommand{\blankpage}[0]{
+    \clearpage
+    \vspace*{\fill}
+    \begin{center}
+        This page is intentionally left blank.
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+    }
+
+\begin{document}
+\include{KaTex_Cover_type1}
+\blankpage
+
+\tableofcontents
+\blankpage
+\include{Experiment_01/Lab1_Main}
+\include{Experiment_02/Lab2_Main}
+\include{Experiment_03/Lab3_Main}
+\include{Experiment_04/Lab4_Main}
+\include{Experiment_05/Lab5_Main}
+\include{Experiment_06/Lab6_Main}
+\include{Experiment_07/Lab7_Main}
+\include{Experiment_08/Lab8_Main}
+\include{Experiment_09/Lab9_Main}
+\include{Experiment_10/Lab10_Main}
+\include{Experiment_11/Lab11_Main}
+\include{Experiment_12/Lab12_Main}
+\include{Experiment_13/Lab13_Main}
+\include{Experiment_14/Lab14_Main}
+\include{Experiment_15/Lab15_Main}
+
+
+
+\end{document}

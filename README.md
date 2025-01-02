@@ -1,0 +1,2 @@
+## Notice
++ In this project, the chapter TeX file are in the parent folder relative to the main TeX file, so one would encounter permission issue. To fix that, give the TeX permission to write on parent file, which might be dangerous, and one should do it on their own risk. This is the forum I'm reference from: [latex forum](https://latex.org/forum/viewtopic.php?t=1756)

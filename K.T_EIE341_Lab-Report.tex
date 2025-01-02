@@ -1,0 +1,95 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper,11pt]{article}
+
+%Include Packages
+%----------------------------------------------------
+\usepackage{./Header/KaTeX_LabReport}
+\usepackage{lipsum}
+% Note: 
+% The input command is equivalent to copy-paste the content of the file
+% into the current file.
+
+\renewcommand{\thesection}{\Roman{section}} 
+\titleformat{\section}[display]%command shape
+    {\Huge}%format
+    {
+        \newpage
+        \setlength\fboxsep{0pt}
+        \color{gray} \fontsize{20}{5}\selectfont\chaptername\ \thesection
+    }%label
+    {0pt}{}{}
+\titlespacing*{\section}{0pt}{0pt}{20pt}
+\renewcommand{\thesubsection}{\thesection: \Roman{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection. \roman{subsubsection}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\titleformat{\subsection}
+    {\bfseries\Large}%format
+    {\huge\textnormal{\thesubsection}}%label
+    {12pt}{}{}
+
+\usepackage{sectsty}
+    \sectionfont{\LARGE}
+    \subsectionfont{\large}
+    \subsubsectionfont{\large}
+    \paragraphfont{\large}
+\usepackage{titletoc}
+    \titlecontents{}[1em]{\addvspace{1pc}\bfseries}      {\contentslabel{3em}}{}
+    {\titlerule*[0.3pc]{.}\contentspage}
+
+\usepackage{tocloft}% http://ctan.org/pkg/tocloft
+\setlength\cftsecnumwidth{6em}
+
+\renewcommand{\thesubsubsection}{\thesubsection: \roman{subsubsection}}
+\titlespacing{\subsubsection}{0pt}{15pt}{5pt}
+
+%Hyperlink Setting
+%----------------------------------------------------
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+
+% \includeonly{
+%     Experiment_01/Lab1_Main,
+%     Experiment_02/Lab2_Main,
+%     Experiment_07/Lab7_Main,
+% }
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	FRONT MATTER
+%----------------------------------------------------------------------------------------
+% Cover
+\thispagestyle{empty}
+% \input{KaTex_Cover_type1.tex}
+\blankpage
+
+% Table of Contents
+\tableofcontents
+\blankpage
+
+%----------------------------------------------------------------------------------------
+%	Main Content
+%----------------------------------------------------------------------------------------
+% \section{Common Section}
+% \includefrom{Experiment_01}{Lab1_Main}
+% \includefrom{Experiment_02}{Lab2_Main}
+% \includefrom{Experiment_03}{Lab3_Main}
+% \includefrom{Experiment_04}{Lab4_Main}
+% \includefrom{Experiment_05}{Lab5_Main}
+% \includefrom{Experiment_06}{Lab6_Main}
+% \includefrom{Experiment_07}{Lab7_Main}
+% \includefrom{Experiment_08}{Lab8_Main}
+% \includefrom{Experiment_09}{Lab9_Main}
+% \includefrom{Experiment_10}{Lab10_Main}
+% \includefrom{Experiment_11}{Lab11_Main}
+% \includefrom{Experiment_12}{Lab12_Main}
+% \includefrom{Experiment_13}{Lab13_Main}
+% \includefrom{Experiment_14}{Lab14_Main}
+% \includefrom{Experiment_15}{Lab15_Main}
+
+\end{document}
